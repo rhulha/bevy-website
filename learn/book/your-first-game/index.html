@@ -1,0 +1,1047 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name='viewport' content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Bevy - Your first game" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://bevyengine.org&#x2F;&#x2F;learn&#x2F;book&#x2F;your-first-game&#x2F;" />
+        <meta property="og:image" content="https://bevyengine.org/assets/bevy_logo_fill.png" />
+        <meta property="og:description" content="Bevy is a refreshingly simple data-driven game engine built in Rust. It is free and open-source forever!" />
+        <link rel="shortcut icon" type="image/png" href="/assets/favicon.png">
+        <link rel="stylesheet" href="../../../site.css" />
+        <link href="/atom.xml" rel="alternate" type="application/atom+xml" />
+        <title>Bevy - Your first game</title>
+        
+<script src="../../../optional-helpers.js"></script>
+
+    </head>
+
+    <body>
+        <div class="headerbar-container">
+            <nav class="headerbar container">
+                <a href="../../../" class="header-logo">
+                    <img src="../../../assets/bevy_logo_dark.svg" class="logo" alt="bevy logo" />
+                </a>
+                
+                    <label class="toggle-nav-mobile" for=show-book-nav>
+                        <svg alt="nav bars" width="24" height="24">
+                            <g fill="none" stroke="#ececec" stroke-width="2">
+                                <path d="m4 6h16" />
+                                <path d="m4 11h16" />
+                                <path d="m4 16h16" />
+                            </g>
+                        </svg>
+                    </label>
+                
+                <div class="header-item header-message">
+                    
+                        The Book
+                    
+                </div>
+                <div class="header-item header-push"></div>
+                
+
+
+
+    
+
+
+<a href="&#x2F;" class="header-item" >
+    Features
+</a>
+
+                
+
+
+
+    
+
+
+<a href="&#x2F;learn" class="header-item header-item-active"  >
+    Learn
+</a>
+
+                
+
+
+
+    
+
+
+<a href="&#x2F;news" class="header-item" >
+    News
+</a>
+
+                
+
+
+
+    
+
+
+<a href="&#x2F;community" class="header-item" >
+    Community
+</a>
+
+                <a class="header-item header-button header-button-donate" href="https://github.com/sponsors/cart">Donate <img src="../../../assets/heart.svg" class="header-button-donate-heart" alt="heart icon"/></a>
+                <a class="header-item header-button" href="/learn/book/getting-started/">Get Started</a>
+            </nav>
+        </div>
+        <section class="section">
+            <div class="container">
+                
+<div class="book-page">
+    <input type="checkbox" style="display: none" id="show-book-nav" />
+    <nav class="book-nav" role="navigation">
+        
+        
+        <ul class="book-nav-sections-container book-nav-sections">
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;introduction&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">1.</strong>
+        introduction
+    </a>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.</strong>
+        getting started
+    </a>
+    
+    <ul class="book-nav-sections book-nav-sections-indented">
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;setup&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.1.</strong>
+        setup
+    </a>
+    
+</li>
+
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;apps&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.2.</strong>
+        apps
+    </a>
+    
+</li>
+
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;ecs&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.3.</strong>
+        ecs
+    </a>
+    
+</li>
+
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;plugins&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.4.</strong>
+        plugins
+    </a>
+    
+</li>
+
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;resources&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">2.5.</strong>
+        resources
+    </a>
+    
+</li>
+
+        
+    </ul>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;your-first-game&#x2F;" class="book-nav-section-title-active book-nav-section-title" >
+        <strong class="book-nav-section-number">3.</strong>
+        your first game
+    </a>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;next-steps&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">4.</strong>
+        next steps
+    </a>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;contributing&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">5.</strong>
+        contributing
+    </a>
+    
+    <ul class="book-nav-sections book-nav-sections-indented">
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;contributing&#x2F;code&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">5.1.</strong>
+        code
+    </a>
+    
+</li>
+
+        
+        
+        
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;contributing&#x2F;docs&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">5.2.</strong>
+        docs
+    </a>
+    
+</li>
+
+        
+    </ul>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;troubleshooting&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">6.</strong>
+        troubleshooting
+    </a>
+    
+</li>
+
+            
+            
+
+<li class="book-nav-section">
+    <a href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;faq&#x2F;" class="book-nav-section-title">
+        <strong class="book-nav-section-number">7.</strong>
+        faq
+    </a>
+    
+</li>
+
+            
+        </ul>
+        
+    </nav>
+    <div class="book-content">
+        
+
+        
+        
+
+        
+        
+            
+            
+
+            
+        
+            
+            
+
+            
+                
+                
+                
+            
+                
+                
+                
+            
+                
+                
+                
+            
+                
+                
+                
+            
+                
+                
+                
+            
+        
+            
+            
+
+            
+        
+            
+            
+
+            
+        
+            
+            
+
+            
+                
+                
+                
+            
+                
+                
+                
+            
+        
+            
+            
+
+            
+        
+            
+            
+
+            
+        
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+
+            
+
+        
+            
+            
+
+            
+             
+             
+                <a id="book-pager-bar-previous" href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;getting-started&#x2F;resources&#x2F;" class="book-pager-bar book-pager-bar-previous">
+                    <div class="book-pager-bar-icon book-pager-bar-icon-previous">
+                        <img src="../../../assets/pager_previous.svg" class="book-pager-image book-pager-image-left" />
+                    </div>
+                </a>
+             
+            
+
+            
+
+        
+            
+            
+                <a id="book-pager-bar-next" href="https:&#x2F;&#x2F;bevyengine.org&#x2F;learn&#x2F;book&#x2F;next-steps&#x2F;" class="book-pager-bar book-pager-bar-next">
+                    <div class="book-pager-bar-icon book-pager-bar-icon-next">
+                    <img src="../../../assets/pager_next.svg" class="book-pager-image book-pager-image-right" />
+                    </div>
+                </a>
+                
+
+        <h1>
+            
+                Your first game
+            
+            
+        </h1>
+        <div class="media-content"><p>Okay, now that you know the basics of Bevy, let's look at an actual game. Specifically let's look at one of the examples that come with Bevy: Breakout.</p>
+<p><img src="breakout1.png" alt="screenshot1" /></p>
+<p>For those of you who don't know, Breakout is an arcade game developed and published by Atari in 1976. In the game a layer of bricks lines the top third of the screen and the goal is to destroy them all. A ball moves straight around the screen, bouncing off the top and two sides of the screen. When a brick is hit, the ball bounces back and the brick is destroyed. The player loses a turn when the ball touches the bottom of the screen; to prevent this from happening, the player has a horizontally movable paddle to bounce the ball upward, keeping it in play. <a href="https://en.wikipedia.org/wiki/Breakout_(video_game)">Source: Wikipedia</a></p>
+<p>Here is a version of the game compiled to WebGL that you can play right away:<br />
+<a href="https://mrk.sed.pl/bevy-showcase/breakout.html">https://mrk.sed.pl/bevy-showcase/breakout.html</a></p>
+<p>You can take a look at the complete <a href="https://github.com/bevyengine/bevy/blob/main/examples/game/breakout.rs">source code of the game</a>, but I suggest to follow along this tutorial first, since it will slowly build up to the example game one step at a time.</p>
+<p>So what are the elements of the game ?</p>
+<ul>
+<li>A paddle</li>
+<li>A ball</li>
+<li>Bricks</li>
+<li>Walls</li>
+<li>A score counter</li>
+</ul>
+<p>Let's start with the paddle:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">use </span><span style="color:#cccece;">bevy</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">
+    prelude</span><span style="color:#5fb3b3;">::*,</span><span style="color:#cccece;">
+    render</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">pass</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">};</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+    App</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">build</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_plugins</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">DefaultPlugins</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">insert_resource</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">)))</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_startup_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">setup</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">struct </span><span style="color:#cccece;">Paddle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    speed</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">f32</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">enum </span><span style="color:#cccece;">Collider </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    Solid</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+    Scorable</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+    Paddle</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">setup</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">commands</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Commands,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">materials</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">ResMut</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Assets</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">ColorMaterial</span><span style="color:#5fb3b3;">&gt;&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">asset_server</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">AssetServer</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+    commands</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// cameras</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">OrthographicCameraBundle</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new_2d</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">UiCameraBundle</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// paddle</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">()),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, -</span><span style="color:#f99157;">215.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">120.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Paddle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;"> speed</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">500.0 </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Paddle</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">paddle_movement_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">time</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Time</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">keyboard_input</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Input</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">&gt;&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#cccece;">Paddle, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Transform</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle</span><span style="color:#5fb3b3;">, </span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> direction </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> keyboard_input</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">pressed</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Left</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+            direction </span><span style="color:#5fb3b3;">-= </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> keyboard_input</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">pressed</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Right</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+            direction </span><span style="color:#5fb3b3;">+= </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> translation </span><span style="color:#5fb3b3;">= &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// move the paddle horizontally</span><span style="color:#cccece;">
+        translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+=</span><span style="color:#cccece;"> time</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">delta_seconds</span><span style="color:#5fb3b3;">() *</span><span style="color:#cccece;"> direction </span><span style="color:#5fb3b3;">*</span><span style="color:#cccece;"> paddle</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">speed</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// bound the paddle</span><span style="color:#cccece;">
+        translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">min</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">380.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">max</span><span style="color:#5fb3b3;">(-</span><span style="color:#f99157;">380.0</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span></code></pre>
+<p>The code might be a lot to take in at first glance, but don't worry. We will take it one section at a time.</p>
+<p>Before we do that however, let's see it in action!</p>
+<p>Create a new folder and project on your hard drive using this command:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#6699cc;">cargo new my_breakout_game</span><span style="color:#cccece;">
+</span><span style="color:#6699cc;">cd my_breakout_game</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Edit Cargo.toml to add a dependency on the Bevy git repo as outline in the <a href="/learn/book/getting-started/">getting started guide</a>.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">[dependencies]</span><span style="color:#cccece;">
+</span><span style="color:#eb606b;">bevy</span><span style="color:#5fb3b3;">={</span><span style="color:#eb606b;">git</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">https://github.com/bevyengine/bevy</span><span style="color:#5fb3b3;">&quot;, </span><span style="color:#eb606b;">rev</span><span style="color:#5fb3b3;">=&quot;</span><span style="color:#99c794;">bc4fe9b186db3f32eef38fc4241289df480fa949</span><span style="color:#5fb3b3;">&quot;}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>(We do this because for the code above Bevy 0.4 is already outdated.)</p>
+<p>Then copy and paste the large piece of code above into the main.rs file in the my_breakout_game/src folder.</p>
+<p>Finally execute this in your project folder:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#6699cc;">cargo run</span><span style="color:#cccece;">
+</span></code></pre>
+<p>You will probably get 3 warnings. They are okay for now, we will have them fixed by the end of this tutorial.</p>
+<p>You should be able to move the paddle with your cursor keys and it should look like this:</p>
+<p><img src="breakout2.png" alt="screenshot2" /></p>
+<p>Okay, so what is the code doing?</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">use </span><span style="color:#cccece;">bevy</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">
+    prelude</span><span style="color:#5fb3b3;">::*,</span><span style="color:#cccece;">
+    render</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">pass</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">};</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This simply declares a couple of local name bindings to the most common Bevy types and plugins as well as a local name binding to ClearColor.
+ClearColor is a struct that contains the color we will use to clear the game with; effectively becoming the background color of our game.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">main</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+    App</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">build</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_plugins</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">DefaultPlugins</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">insert_resource</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">)))</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_startup_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">setup</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This is the main entry point into our program. This function will be called once the program is successfully compiled and executed.</p>
+<p><a href="https://github.com/bevyengine/bevy/blob/main/crates/bevy_app/src/app.rs">App::build()</a> is a very simple function that just returns a new instance of <a href="https://docs.rs/bevy/0.4.0/bevy/app/struct.AppBuilder.html">AppBuilder</a></p>
+<p>As the other function calls suggest, the AppBuilder allows us to add plugins and (startup) systems and to insert resources.
+Finally a call to run starts the game engine with all of the configured systems, plugins and resources.
+The <a href="/learn/book/getting-started/">getting started guide</a> covers these types in great detail.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#6699cc;">add_plugins</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">DefaultPlugins</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This call simply adds all the default plugins to the app.<br />
+Follow this link if you are interested in a complete list of all of the default plugins: <a href="https://github.com/bevyengine/bevy/blob/main/crates/bevy_internal/src/default_plugins.rs">default_plugins.rs</a></p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">insert_resource</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.9</span><span style="color:#5fb3b3;">)))</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Here we insert a ClearColor resource, set to a light grey. (rgb stands for the red, green and blue parts of the final color.)</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_startup_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">setup</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Here we register our very own setup function as a startup system.
+Startup systems are only called once and before any of the normal systems are called.
+We will cover the setup function code in detail in a moment.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Here we add our very own paddle_movement_system function as a system.
+Systems are called every frame.
+We will cover the paddle_movement_system function code in detail in a moment.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Finally we tell the Bevy game engine to start with a call to run.<br />
+(If you are really interested in the source code of the run function you can find it here: <a href="https://github.com/bevyengine/bevy/blob/main/crates/bevy_app/src/app.rs">app.rs</a>)</p>
+<h2 id="let-s-take-a-look-at-that-setup-function">Let's take a look at that setup function.</h2>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">struct </span><span style="color:#cccece;">Paddle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    speed</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">f32</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">enum </span><span style="color:#cccece;">Collider </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    Solid</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+    Scorable</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+    Paddle</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">setup</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">commands</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Commands,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">materials</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">ResMut</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Assets</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">ColorMaterial</span><span style="color:#5fb3b3;">&gt;&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">asset_server</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">AssetServer</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+    commands</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// cameras</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">OrthographicCameraBundle</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new_2d</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">UiCameraBundle</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// paddle</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">()),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, -</span><span style="color:#f99157;">215.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">120.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Paddle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;"> speed</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">500.0 </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Paddle</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p><code>struct Paddle</code> is a struct with one float field called speed.<br />
+<code>enum Collider</code> is an enumeration with three fields. We will use it to declare the type of collisions the ball can hit.</p>
+<p>Next our setup function expects three arguments:</p>
+<ul>
+<li>a reference to a <a href="https://docs.rs/bevy_ecs/0.4.0/bevy_ecs/struct.Commands.html">Commands</a> struct.</li>
+<li>an instance of a collection of ColorMaterials.</li>
+<li>an instance of AssetServer.</li>
+</ul>
+<p>The <code>Commands</code> struct can be used to spawn <code>Bundles</code> and to add <code>Components</code>.<br />
+Material is used to paint 2D or 3D objects on screen and <code>ColorMaterial</code> is the simplest Material as it only supports a single color as oposed to, for example, textures.<br />
+The AssetServer will be used in the last section of this tutorial to load the font we will use to display the game score.</p>
+<p>Inside the function (that is only run once, since it is only a startup_system) we then use the commands struct
+to spawn (or in another word, add) a couple of Bundles. Namely we spawn an orthographic and a separate UI camera.
+This is done because it is usually easier to render the UI using a different camera then the one the game objects are using.<br />
+This becomes especially clear when you think of combining a 3D game using a perspective camera and a UI.<br />
+The requirements for a UI and a 3D scene camera are so different, that is becomes easier to simply and completely separate them out.<br />
+Next we spawn a sprite to represent our paddle. A sprite is usually a simple little graphical 2D object, like a tree or a player character (like <a href="https://i.imgur.com/ZqL6DG5h.jpg">2D Mario</a> for example).</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">()),</span><span style="color:#cccece;">
+transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, -</span><span style="color:#f99157;">215.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Here we define this sprite to have a color that is light blue and to sit -215 pixels downwards from the center of the play area.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">120.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Here we define this sprite to be 120 pixels wide and 30 pixels tall.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Then we just tell Rust to give the rest of the SpriteBundle fields their appropriate <a href="https://doc.rust-lang.org/std/default/trait.Default.html">default values</a>.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Paddle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;"> speed</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">500.0 </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Paddle</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Next we add a our Paddle as a <code>Component</code> that can be used in <code>Queries</code>. We will look at a <code>Query</code> in the next section.
+Finally we add a Component of type Collider::Paddle to this entity so the ball can later bounce off of it.</p>
+<h2 id="let-s-take-a-look-at-the-paddle-movement-system">Let's take a look at the paddle_movement_system.</h2>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">paddle_movement_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">time</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Time</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">keyboard_input</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Input</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">&gt;&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#cccece;">Paddle, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Transform</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle</span><span style="color:#5fb3b3;">, </span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> direction </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> keyboard_input</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">pressed</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Left</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+            direction </span><span style="color:#5fb3b3;">-= </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> keyboard_input</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">pressed</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">KeyCode</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Right</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+            direction </span><span style="color:#5fb3b3;">+= </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> translation </span><span style="color:#5fb3b3;">= &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// move the paddle horizontally</span><span style="color:#cccece;">
+        translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+=</span><span style="color:#cccece;"> time</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">delta_seconds</span><span style="color:#5fb3b3;">() *</span><span style="color:#cccece;"> direction </span><span style="color:#5fb3b3;">*</span><span style="color:#cccece;"> paddle</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">speed</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// bound the paddle</span><span style="color:#cccece;">
+        translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> translation</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">min</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">380.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">max</span><span style="color:#5fb3b3;">(-</span><span style="color:#f99157;">380.0</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>The paddle_movement_system function expects three arguments:</p>
+<ul>
+<li>an instance of the default <a href="https://docs.rs/bevy_core/0.4.0/bevy_core/struct.Time.html">Time</a> resource.</li>
+<li>an instance of the default <a href="https://docs.rs/bevy_input/0.4.0/bevy_input/struct.Input.html">Input</a><KeyCode> resource under the name keyboard_input.</li>
+<li>an instance of a Query that references our Paddle and its <a href="https://docs.rs/bevy/0.4.0/bevy/prelude/struct.Transform.html">Transform</a>.</li>
+</ul>
+<p>The Time struct contains the following helpful <a href="https://github.com/bevyengine/bevy/blob/main/crates/bevy_core/src/time/time.rs">information</a>:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">pub struct </span><span style="color:#cccece;">Time </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    delta</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Duration,</span><span style="color:#cccece;">
+    last_update</span><span style="color:#5fb3b3;">: </span><span style="color:#fac863;">Option</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Instant</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    delta_seconds_f64</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">f64</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    delta_seconds</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">f32</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    seconds_since_startup</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">f64</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    startup</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Instant,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Inside the function, that is called every frame, we iterate over all <code>Components</code> in our scene that match the type Paddle.<br />
+Then we check if the left or right cursor key is pressed and we set the direction variable accordingly.<br />
+Finally we access the translation (a fancy word for position) field of the <code>Transform</code> instance and use it to change the horizontal (x) paddle position on the playing field.<br />
+As done here, it is good practice to factor in time.delta_seconds(). This makes sure that the behavior of the paddle is independent of the frame rate.
+We also have to make sure that the paddle doesn't move off of the screen. So we limit the paddle inside of 380 pixels to the right and left of the center position.</p>
+<h2 id="next-let-s-add-some-walls">Next let's add some walls.</h2>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> wall_material </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.8</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.8</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.8</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">());</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> wall_thickness </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">10.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> bounds </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">900.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">600.0</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+    commands</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// left</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> wall_material</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">clone</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(-</span><span style="color:#cccece;">bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">/ </span><span style="color:#f99157;">2.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">wall_thickness</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Solid</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// right</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> wall_material</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">clone</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">/ </span><span style="color:#f99157;">2.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">wall_thickness</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Solid</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// bottom</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> wall_material</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">clone</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, -</span><span style="color:#cccece;">bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">/ </span><span style="color:#f99157;">2.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Solid</span><span style="color:#5fb3b3;">)</span><span style="color:#cccece;">
+        </span><span style="color:#5f6364;">// top</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> wall_material</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">/ </span><span style="color:#f99157;">2.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">bounds</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> wall_thickness</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Solid</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Add this code to the inside of the startup function, just before it ends and run the program with <code>cargo run</code>.
+You should now see walls inside of your game just like this:</p>
+<p><img src="breakout3.png" alt="" /></p>
+<p>With all that we have learned so far, it should be pretty obvious what the code above does. But let's go over some interesting details.
+You might have noticed that except for the last wall, every other wall has received a clone of the wall_material.
+Why is that necessary?<br />
+Well two fold: It is usually good practice to give every object in a game its own material. Otherwise it can happen, that you change the color on one object and suddenly you
+have changed the color on all objects that share the same material. This is usually not what you want. Secondly, of course Rust would like to have a single material owner per SpriteBundle instance.
+So in this case we can solve both requirements with a simple call to <code>wall_material.clone()</code>.</p>
+<h2 id="next-let-s-add-the-ball-this-is-where-the-fun-starts">Next let's add the Ball. This is where the fun starts :-)</h2>
+<p>First add this line to our use section at the top:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">collide_aabb</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">collide</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> Collision</span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+</span></code></pre>
+<p>So it looks like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">use </span><span style="color:#cccece;">bevy</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">
+    prelude</span><span style="color:#5fb3b3;">::*,</span><span style="color:#cccece;">
+    render</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">pass</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">ClearColor</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+    sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">collide_aabb</span><span style="color:#5fb3b3;">::{</span><span style="color:#cccece;">collide</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> Collision</span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">};</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This line adds a couple of cool functions that allows us to detect collsions between our ball and the other objects in our game.</p>
+<p>Next add these two lines into the middle of our main function at the top:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball_collision_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+</span></code></pre>
+<p>so it looks like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">paddle_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball_collision_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Next add a struct that represents our ball right after the Paddle struct:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">struct </span><span style="color:#cccece;">Ball </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    velocity</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Vec3,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p><a href="https://docs.rs/glam/0.12.0/glam/f32/struct.Vec3.html">Vec3</a> is a struct that contains three float fields: x,y and z.<br />
+It is part of the <a href="https://docs.rs/glam/0.12.0/glam/">glam</a> Rust crate which is a simple and fast linear algebra library for games and graphics.</p>
+<p>Add the following code to our setup function, just before we add our walls:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        commands</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">()),</span><span style="color:#cccece;">
+            transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_xyz</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">, -</span><span style="color:#f99157;">50.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+            sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">)),</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Ball </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            velocity</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">400.0 </span><span style="color:#5fb3b3;">* </span><span style="color:#cccece;">Vec3</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, -</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">normalize</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">});</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This code should look very familiar by now. ;-)</p>
+<p>Add the following two functions to the end of main.rs:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">ball_movement_system</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">time</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Time</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">, </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">ball_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#cccece;">Ball, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Transform</span><span style="color:#5fb3b3;">)&gt;) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> delta_seconds </span><span style="color:#5fb3b3;">= </span><span style="color:#c594c5;">f32</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">min</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.2</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> time</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">delta_seconds</span><span style="color:#5fb3b3;">());</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball</span><span style="color:#5fb3b3;">, </span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> ball_query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation </span><span style="color:#5fb3b3;">+=</span><span style="color:#cccece;"> ball</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">velocity </span><span style="color:#5fb3b3;">*</span><span style="color:#cccece;"> delta_seconds</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">ball_collision_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">commands</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Commands,</span><span style="color:#cccece;">
+    </span><span style="color:#5f6364;">//mut scoreboard: ResMut&lt;Scoreboard&gt;,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">ball_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Ball, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Transform, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">collider_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(</span><span style="color:#cccece;">Entity, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Collider, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Transform, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> ball</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> ball_transform</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> sprite</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> ball_query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> ball_size </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> sprite</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">size</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> velocity </span><span style="color:#5fb3b3;">= &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> ball</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">velocity</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">collider_entity</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> collider</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> sprite</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> collider_query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+            </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> collision </span><span style="color:#5fb3b3;">= </span><span style="color:#6699cc;">collide</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+                ball_transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                ball_size</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                sprite</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">size</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+            </span><span style="color:#c594c5;">if let </span><span style="color:#fac863;">Some</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">collision</span><span style="color:#5fb3b3;">) =</span><span style="color:#cccece;"> collision </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">if let </span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Scorable </span><span style="color:#5fb3b3;">= *</span><span style="color:#cccece;">collider </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    </span><span style="color:#5f6364;">//scoreboard.score += 1;</span><span style="color:#cccece;">
+                    commands</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">despawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">collider_entity</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> reflect_x </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">false</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">let mut</span><span style="color:#cccece;"> reflect_y </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">false</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">match</span><span style="color:#cccece;"> collision </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    Collision</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Left </span><span style="color:#5fb3b3;">=&gt;</span><span style="color:#cccece;"> reflect_x </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">&gt; </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                    Collision</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Right </span><span style="color:#5fb3b3;">=&gt;</span><span style="color:#cccece;"> reflect_x </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                    Collision</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Top </span><span style="color:#5fb3b3;">=&gt;</span><span style="color:#cccece;"> reflect_y </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">&lt; </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                    Collision</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Bottom </span><span style="color:#5fb3b3;">=&gt;</span><span style="color:#cccece;"> reflect_y </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">&gt; </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> reflect_x </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">= -</span><span style="color:#cccece;">velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">if</span><span style="color:#cccece;"> reflect_y </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">= -</span><span style="color:#cccece;">velocity</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+                </span><span style="color:#c594c5;">if let </span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Solid </span><span style="color:#5fb3b3;">= *</span><span style="color:#cccece;">collider </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    </span><span style="color:#c594c5;">break</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Let's run it with <code>cargo run</code>and see what happens. </p>
+<p>It should look like this:</p>
+<p><img src="breakout4.png" alt="" /></p>
+<p>Okay, so what is happening inside the two functions we just added?</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">ball_movement_system</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">time</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Time</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">, </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">ball_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#cccece;">Ball, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Transform</span><span style="color:#5fb3b3;">)&gt;) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> delta_seconds </span><span style="color:#5fb3b3;">= </span><span style="color:#c594c5;">f32</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">min</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.2</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;"> time</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">delta_seconds</span><span style="color:#5fb3b3;">());</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for </span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball</span><span style="color:#5fb3b3;">, </span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> transform</span><span style="color:#5fb3b3;">) in</span><span style="color:#cccece;"> ball_query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        transform</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">translation </span><span style="color:#5fb3b3;">+=</span><span style="color:#cccece;"> ball</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">velocity </span><span style="color:#5fb3b3;">*</span><span style="color:#cccece;"> delta_seconds</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This function is turned into a system in our setup function and is called every frame.<br />
+The first line makes sure that the delta time can never be more than 0.2 seconds.<br />
+This can happen at the beginning of a game, after some potentially slow loading resources are read from disk.
+Without this line, the ball could potentially &quot;teleport&quot; outside of our game.</p>
+<p>Next we iterate over all instances of type Ball in our game using the familiar Query instance
+and we change the translation (position) using the ball's velocity combined with the delta_seconds.<br />
+Again we are using the delta_seconds in order to make the game independent of its framerate.</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">ball_collision_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">commands</span><span style="color:#5fb3b3;">: &amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Commands,</span><span style="color:#cccece;">
+    </span><span style="color:#5f6364;">//mut scoreboard: ResMut&lt;Scoreboard&gt;,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">ball_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Ball, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Transform, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+    </span><span style="color:#f99157;">collider_query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;(</span><span style="color:#cccece;">Entity, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Collider, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Transform, </span><span style="color:#5fb3b3;">&amp;</span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">)&gt;</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">) {</span><span style="color:#cccece;">
+</span></code></pre>
+<p>The second function, <code>ball_collision_system</code> takes four arguments:</p>
+<ul>
+<li>A reference to the Commands instance. We can use it not only to add but also to remove entities. This will become very handy when we add the bricks in the next step.</li>
+<li>A commented out instance of our scoreboard. We will need this in the last step of this tutorial.</li>
+<li>An instance of a Query that references our Ball and its <a href="https://docs.rs/bevy/0.4.0/bevy/prelude/struct.Transform.html">Transform</a> and <code>Sprite</code>.</li>
+<li>An instance of a Query that references all collidable Entities and its <a href="https://docs.rs/bevy/0.4.0/bevy/prelude/struct.Transform.html">Transform</a>, <code>Collider</code> and <code>Sprite</code>.</li>
+</ul>
+<p>I won't copy the complete code of the function body here again, since the code is easy enough to understand.
+Basically the code iterates over all balls (of course the game only has one, but this is the way to get it) and then it iterates over all collidable objects.
+The Query object is magic and only returns entities that contain ALL of the elements in the type list.<br />
+Then the code uses the handy <code>collide</code> function we imported at the top of main.rs to check for any collisions.
+If we have a collision, we check if it was with a scorable entity (a brick).<br />
+If that is the case, we despawn (remove) the entity from the game and increment the score by one.<br />
+(Since we don't have a scoreboard yet, the line to increment the score is commented out for now.)<br />
+Then we use some basic math to implement the reflection of the ball and finally we break the loop if we hit a wall.</p>
+<h2 id="next-let-s-add-the-bricks">Next let's add the Bricks.</h2>
+<p>Okay, we are almost done! Only two easy steps remain. The first step that remains is adding the bricks. The last step will be to add the scoreboard. Let's go!</p>
+<p>Just before our setup function ends, add these lines:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_rows </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">4</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_columns </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">5</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_spacing </span><span style="color:#5fb3b3;">= </span><span style="color:#f99157;">20.0</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_size </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Vec2</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">150.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">30.0</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> bricks_width </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> brick_columns </span><span style="color:#5fb3b3;">as </span><span style="color:#c594c5;">f32 </span><span style="color:#5fb3b3;">* (</span><span style="color:#cccece;">brick_size</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> brick_spacing</span><span style="color:#5fb3b3;">) -</span><span style="color:#cccece;"> brick_spacing</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+    </span><span style="color:#5f6364;">// center the bricks and move them up a bit</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> bricks_offset </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Vec3</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(-(</span><span style="color:#cccece;">bricks_width </span><span style="color:#5fb3b3;">-</span><span style="color:#cccece;"> brick_size</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x</span><span style="color:#5fb3b3;">) / </span><span style="color:#f99157;">2.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">100.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_material </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> materials</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">).</span><span style="color:#6699cc;">into</span><span style="color:#5fb3b3;">());</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> row </span><span style="color:#5fb3b3;">in </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">..</span><span style="color:#cccece;">brick_rows </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> y_position </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> row </span><span style="color:#5fb3b3;">as </span><span style="color:#c594c5;">f32 </span><span style="color:#5fb3b3;">* (</span><span style="color:#cccece;">brick_size</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">y </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> brick_spacing</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+        </span><span style="color:#c594c5;">for</span><span style="color:#cccece;"> column </span><span style="color:#5fb3b3;">in </span><span style="color:#f99157;">0</span><span style="color:#5fb3b3;">..</span><span style="color:#cccece;">brick_columns </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            </span><span style="color:#c594c5;">let</span><span style="color:#cccece;"> brick_position </span><span style="color:#5fb3b3;">= </span><span style="color:#cccece;">Vec3</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">
+                column </span><span style="color:#5fb3b3;">as </span><span style="color:#c594c5;">f32 </span><span style="color:#5fb3b3;">* (</span><span style="color:#cccece;">brick_size</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">x </span><span style="color:#5fb3b3;">+</span><span style="color:#cccece;"> brick_spacing</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                y_position</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                </span><span style="color:#f99157;">0.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">) +</span><span style="color:#cccece;"> bricks_offset</span><span style="color:#5fb3b3;">;</span><span style="color:#cccece;">
+            commands</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">SpriteBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    material</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> brick_material</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">clone</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+                    sprite</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Sprite</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">new</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">brick_size</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                    transform</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Transform</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">from_translation</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">brick_position</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                    </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">with</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Collider</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Scorable</span><span style="color:#5fb3b3;">);</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Not much explanation needed I think, it is all just basic math. Do note however that we give all bricks a <code>Component</code> of type Collider::Scorable.
+In other words, we set the bricks to be colliders with the type Scorable from our Collider enum at the top of main.rs.<br />
+If you rememeber, we use this in the <code>ball_collision_system</code> to check if we need to increment the score board.</p>
+<p>Execute the game with <code>cargo run</code> and it should look something like this:</p>
+<p><img src="breakout5.png" alt="" /></p>
+<h2 id="we-are-on-the-homestretch-let-s-add-the-score-and-then-we-are-done">We are on the homestretch. Let's add the score and then we are done!</h2>
+<p>Next add these two lines to the main function:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">insert_resource</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Scoreboard </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;"> score</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0 </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">scoreboard_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+</span></code></pre>
+<p>so it looks like this:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">ball_movement_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">insert_resource</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">Scoreboard </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;"> score</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">0 </span><span style="color:#5fb3b3;">})</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">add_system</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">scoreboard_system</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">system</span><span style="color:#5fb3b3;">())</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">run</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Next add a struct that represents our score right after the Ball struct:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">struct </span><span style="color:#cccece;">Scoreboard </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    score</span><span style="color:#5fb3b3;">: </span><span style="color:#c594c5;">usize</span><span style="color:#cccece;">,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p><a href="https://doc.rust-lang.org/std/primitive.usize.html">usize</a> is a basic unsigned Rust type and represents how many bytes it takes to reference a location in memory.
+This type probably is overkill in our usecase, but it doesn't hurt either.</p>
+<p>Add the following lines just before the end to our setup function:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#cccece;">        commands</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">spawn</span><span style="color:#5fb3b3;">(</span><span style="color:#cccece;">TextBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+            text</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Text </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                sections</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">vec!</span><span style="color:#5fb3b3;">[</span><span style="color:#cccece;">
+                    TextSection </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                        value</span><span style="color:#5fb3b3;">: &quot;</span><span style="color:#99c794;">Score: </span><span style="color:#5fb3b3;">&quot;.</span><span style="color:#6699cc;">to_string</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+                        style</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> TextStyle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                            font</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> asset_server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">load</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">fonts/FiraSans-Bold.ttf</span><span style="color:#5fb3b3;">&quot;),</span><span style="color:#cccece;">
+                            font_size</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">40.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                            color</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                        </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+                    </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+                    TextSection </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                        value</span><span style="color:#5fb3b3;">: &quot;&quot;.</span><span style="color:#6699cc;">to_string</span><span style="color:#5fb3b3;">(),</span><span style="color:#cccece;">
+                        style</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> TextStyle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                            font</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> asset_server</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">load</span><span style="color:#5fb3b3;">(&quot;</span><span style="color:#99c794;">fonts/FiraMono-Medium.ttf</span><span style="color:#5fb3b3;">&quot;),</span><span style="color:#cccece;">
+                            font_size</span><span style="color:#5fb3b3;">: </span><span style="color:#f99157;">40.0</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                            color</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Color</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">rgb</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">1.0</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">, </span><span style="color:#f99157;">0.5</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                        </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+                    </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">],</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+            style</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Style </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                position_type</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">PositionType</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Absolute</span><span style="color:#5fb3b3;">,</span><span style="color:#cccece;">
+                position</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Rect </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+                    top</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Val</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Px</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">5.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                    left</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Val</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">Px</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">5.0</span><span style="color:#5fb3b3;">),</span><span style="color:#cccece;">
+                    </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+                </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">},</span><span style="color:#cccece;">
+            </span><span style="color:#5fb3b3;">..</span><span style="color:#fac863;">Default</span><span style="color:#5fb3b3;">::</span><span style="color:#cccece;">default</span><span style="color:#5fb3b3;">()</span><span style="color:#cccece;">
+        </span><span style="color:#5fb3b3;">});</span><span style="color:#cccece;">
+</span></code></pre>
+<p>This looks different than what we had before, so let's go over it.<br />
+Here we are spawning a <a href="https://docs.rs/bevy/0.4.0/bevy/ui/entity/struct.TextBundle.html">TextBundle</a>.</p>
+<p>A TextBundle contains many useful fields:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">pub struct </span><span style="color:#cccece;">TextBundle </span><span style="color:#5fb3b3;">{</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">node</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Node,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">style</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Style,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">draw</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Draw,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">visible</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Visible,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">text</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Text,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">calculated_size</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> CalculatedSize,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">focus_policy</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> FocusPolicy,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">transform</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> Transform,</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">pub </span><span style="color:#cccece;">global_transform</span><span style="color:#5fb3b3;">:</span><span style="color:#cccece;"> GlobalTransform,</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>In our case we set the text field to be two <code>TextSections</code>.
+We do this so we can change the score number independently from the label in front of it.
+And all of the <code>..Default::default()</code> calls just make sure that the rest of the respective struct fields will get sensible values.</p>
+<p>Next we add a scoreboard system function:</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#c594c5;">fn </span><span style="color:#6699cc;">scoreboard_system</span><span style="color:#5fb3b3;">(</span><span style="color:#f99157;">scoreboard</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Res</span><span style="color:#5fb3b3;">&lt;</span><span style="color:#cccece;">Scoreboard</span><span style="color:#5fb3b3;">&gt;</span><span style="color:#cccece;">, </span><span style="color:#c594c5;">mut </span><span style="color:#f99157;">query</span><span style="color:#5fb3b3;">: </span><span style="color:#cccece;">Query</span><span style="color:#5fb3b3;">&lt;&amp;</span><span style="color:#c594c5;">mut</span><span style="color:#cccece;"> Text</span><span style="color:#5fb3b3;">&gt;) {</span><span style="color:#cccece;">
+    </span><span style="color:#c594c5;">for mut</span><span style="color:#cccece;"> text </span><span style="color:#5fb3b3;">in</span><span style="color:#cccece;"> query</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">iter_mut</span><span style="color:#5fb3b3;">() {</span><span style="color:#cccece;">
+        text</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">sections</span><span style="color:#5fb3b3;">[</span><span style="color:#f99157;">1</span><span style="color:#5fb3b3;">].</span><span style="color:#cccece;">value </span><span style="color:#5fb3b3;">=</span><span style="color:#cccece;"> scoreboard</span><span style="color:#5fb3b3;">.</span><span style="color:#cccece;">score</span><span style="color:#5fb3b3;">.</span><span style="color:#6699cc;">to_string</span><span style="color:#5fb3b3;">();</span><span style="color:#cccece;">
+    </span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span><span style="color:#5fb3b3;">}</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Add this right in front of the <code>ball_collision_system</code>.</p>
+<p>This system function asks the Bevy game engine for the resource of type Scoreboard that we added in the setup function.
+It also asks the Bevy game engine for a Query object that is able to iterate over all Text instances in our game.
+We only have one Text instance of course, but it contains our two text sections.
+Inside the function we then access the second section, the one that represents our score number, and we set it to the current score from our scoreboard instance.</p>
+<p>Next we have to uncomment the two lines inside <code>ball_collision_system</code> that were temporarily commented out.
+The two lines where: </p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5f6364;">//mut scoreboard: ResMut&lt;Scoreboard&gt;,</span><span style="color:#cccece;">
+</span></code></pre>
+<p>and</p>
+<pre style="background-color:#2b2c2f;">
+<code><span style="color:#5f6364;">//scoreboard.score += 1;</span><span style="color:#cccece;">
+</span></code></pre>
+<p>Find those two lines and remove the double slashes at the beginning.</p>
+<p>Finally we have to copy the two font files from Bevy to our project.
+The two font files are located in bevy/assets/fonts.
+You can also download them from here: <a href="https://github.com/bevyengine/bevy/tree/main/assets/fonts">bevy/tree/main/assets/fonts</a></p>
+<p>Create the folder structure assets/fonts in your my_breakout_game project folder and copy the two font files into my_breakout_game/assets/fonts.</p>
+<p>Done!
+You successfully recreated the breakout game from the Bevy examples.</p>
+<p>Let's play a round, shall we?</p>
+<p>Execute <code>cargo run</code> and have some fun.<br />
+You earned it!</p>
+</div>
+        <div class="book-pagers" />
+    </div>
+</div>
+
+
+            </div>
+        </section>
+    </body>
+</html>
